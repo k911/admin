@@ -2,7 +2,7 @@ import Api from '@api-platform/api-doc-parser/lib/Api';
 import {Admin} from 'admin-on-rest';
 import PropTypes from 'prop-types';
 import React from 'react';
-import resourcesBuilder from './ResourcesBuilder';
+import resourcesBuilder from './resourcesBuilder';
 
 const AdminBuilder = props => {
   const {api, title = api.title} = props;
