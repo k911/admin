@@ -22,7 +22,7 @@ const resourcesBuilder = (
       remove = Delete,
       show = Show,
     } = resource;
-    return (
+    return () => (
       <Resource
         {...props}
         create={create}
