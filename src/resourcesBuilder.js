@@ -2,21 +2,17 @@ import {Delete, Resource} from 'admin-on-rest';
 import React from 'react';
 import Create from './Create';
 import Edit from './Edit';
-import fieldFactoryDefault from './fieldFactory';
-import inputFactoryDefault from './inputFactory';
+import defaultFieldFactory from './fieldFactory';
+import defaultInputFactory from './inputFactory';
 import List from './List';
 import Show from './Show';
 
-const resourcesBuilder = props => {
-  const {api, fieldFactory, inputFactory} = Object.assign(
-    {
-      fieldFactory: fieldFactoryDefault,
-      inputFactory: inputFactoryDefault,
-    },
-    props,
-  );
-
-  return api.resources.map(resource => {
+const resourcesBuilder = (
+  api,
+  fieldFactory = defaultFieldFactory,
+  inputFactory = defaultInputFactory,
+) =>
+  api.resources.map(resource => {
     const {
       create = Create,
       edit = Edit,
@@ -45,6 +41,5 @@ const resourcesBuilder = props => {
       />
     );
   });
-};
 
 export default resourcesBuilder;

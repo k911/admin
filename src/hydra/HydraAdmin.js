@@ -78,17 +78,13 @@ export default class extends Component {
       );
     }
 
-    const resourcesBuilderProps = Object.assign({}, ...this.props, {
-      api: this.state.api,
-    });
-
     return (
       <Admin
         {...this.props}
         title={this.state.api.title}
         customRoutes={this.props.customRoutes.concat(this.state.customRoutes)}
         restClient={this.props.restClient(this.state.api)}>
-        {resourcesBuilder(resourcesBuilderProps)}
+        {resourcesBuilder(this.state.api)}
       </Admin>
     );
   }

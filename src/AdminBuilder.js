@@ -9,7 +9,7 @@ const AdminBuilder = props => {
 
   return (
     <Admin {...props} title={title}>
-      {resourcesBuilder(props)}
+      {resourcesBuilder(api)}
     </Admin>
   );
 };
