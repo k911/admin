@@ -1,4 +1,4 @@
-export AdminBuilder from './AdminBuilder';
+export ResourcesBuilder from './ResourcesBuilder';
 export Create from './Create';
 export Edit from './Edit';
 export fieldFactory from './fieldFactory';
