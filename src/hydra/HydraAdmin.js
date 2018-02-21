@@ -2,8 +2,8 @@ import apiDocumentationParser from '@api-platform/api-doc-parser/lib/hydra/parse
 import PropTypes from 'prop-types';
 import React, {Component} from 'react';
 import {Admin} from 'admin-on-rest';
-import ResourcesBuilder from '../ResourcesBuilder';
 import restClient from './hydraClient';
+import resourcesBuilder from '../resourcesBuilder';
 
 export default class extends Component {
   static defaultProps = {
@@ -78,13 +78,17 @@ export default class extends Component {
       );
     }
 
+    const resourcesBuilderProps = Object.assign({}, ...this.props, {
+      api: this.state.api,
+    });
+
     return (
       <Admin
         {...this.props}
         title={this.state.api.title}
         customRoutes={this.props.customRoutes.concat(this.state.customRoutes)}
         restClient={this.props.restClient(this.state.api)}>
-        <ResourcesBuilder {...this.props} api={this.state.api} />
+        {resourcesBuilder(resourcesBuilderProps)}
       </Admin>
     );
   }
